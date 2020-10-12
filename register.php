@@ -16,9 +16,12 @@ if (isset($_POST['submit'])) {
     }
 
     // проверяем, не сущестует ли пользователя с таким именем
-    $query = mysqli_query($link, "SELECT id FROM users WHERE login=" . mysqli_real_escape_string($link, $_POST['login']) . "'");
-    if (mysqli_num_rows($query) > 0) {
-        $err[] = "Пользователь с таким логином уже существует в базе данных";
+    $query = mysqli_query($link, "SELECT id FROM users WHERE login='" . $_POST['login'] . "'");
+    $queryResult = $query->fetch_all();
+
+    if (count($queryResult) > 0) {
+        setcookie('user_id', (string)$queryResult[0][0]);
+        header("Location: tasklist.php");
     }
 
     // Если нет ошибок, то добавляем в БД нового пользователя
@@ -26,10 +29,12 @@ if (isset($_POST['submit'])) {
 
         $login = $_POST['login'];
 
-        $password = password_hash(($_POST['password']), PASSWORD_BCRYPT);
+        $password = md5(($_POST['password']));
 
-        mysqli_query($link, "INSERT INTO users SET login=" . $login . "', password='" . $password . "'");
-        header("Location: login.php");
+        $link->query("INSERT INTO users SET login='" . $login . "', password='" . $password . "'");
+        $userId = mysqli_insert_id($link);
+        setcookie('user_id', (string)$userId);
+        header("Location: tasklist.php");
         exit();
     } else {
         print "<b>При регистрации произошли следующие ошибки:</b><br>";
