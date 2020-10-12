@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="55aa46a8-4ab0-407a-b444-244c2d89cf9c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/0000_base.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/0001_users.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/0002_tasks.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/migration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +42,10 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="EditorConfig" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Task list" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -35,11 +56,84 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602487272473</updated>
-      <workItem from="1602487274480" duration="505000" />
+      <workItem from="1602487274480" duration="22757000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="363" y="373" width="1184" height="286" key="#SQL_Dialects" timestamp="1602510311118">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="363" y="373" width="1184" height="286" key="#SQL_Dialects/0.0.1920.1040@0.0.1920.1040" timestamp="1602510311118" />
+    <state x="555" y="180" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602510265854">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="180" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602510265854" />
+    <state x="1179" y="324" width="512" height="384" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602498219005">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1179" y="324" width="512" height="384" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602498219005" />
+    <state x="743" y="277" width="424" height="478" key="FileChooserDialogImpl" timestamp="1602504911657">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="277" width="424" height="478" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602504911657" />
+    <state width="1294" height="277" key="GridCell.Tab.0.bottom" timestamp="1602489740240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1294" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602489740240" />
+    <state width="1294" height="277" key="GridCell.Tab.0.center" timestamp="1602489740240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1294" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602489740240" />
+    <state width="1294" height="277" key="GridCell.Tab.0.left" timestamp="1602489740240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1294" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602489740240" />
+    <state width="1294" height="277" key="GridCell.Tab.0.right" timestamp="1602489740240">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1294" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602489740240" />
+    <state width="222" height="457" key="HiddenNamespacesPopup" timestamp="1602500623296">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="222" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1602500623296" />
+    <state x="778" y="445" width="354" height="141" key="NewPhpFileDialog" timestamp="1602510750821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="778" y="445" width="354" height="141" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602510750821" />
+    <state x="464" y="154" key="SettingsEditor" timestamp="1602489390476">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602489390476" />
+    <state x="543" y="177" width="824" height="678" key="com.intellij.database.dbimport.ImportDialog" timestamp="1602500349536">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="543" y="177" width="824" height="678" key="com.intellij.database.dbimport.ImportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602500349536" />
+    <state x="32" y="147" width="1176" height="760" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1602501320133">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="32" y="147" width="1176" height="760" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602501320133" />
+    <state x="666" y="268" width="587" height="502" key="find.popup" timestamp="1602509333907">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="268" width="587" height="502" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602509333907" />
+    <state x="1165" y="434" width="540" height="166" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602512238097">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1165" y="434" width="540" height="166" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602512238097" />
   </component>
 </project>
