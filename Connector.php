@@ -8,8 +8,9 @@ class Connector
     private $password;
     private $database;
 
-    public function __constructor()
+    public function __construct()
     {
+        require_once ('./.settings.php');
         $this->host = Settings::host;
         $this->user = Settings::user;
         $this->password = Settings::password;

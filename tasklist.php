@@ -1,5 +1,9 @@
 <?php
-require_once('./register.php');
+try{
+require_once ('./Controllers/taskController.php');
+}catch (Throwable $exception){
+    echo $exception->getMessage();
+}
 ?>
 <!doctype html>
 <html lang="ru">
@@ -14,21 +18,22 @@ require_once('./register.php');
 <body>
     <h1>Лист заданий</h1>
     <form action="/add.php" method="post">
-        <input type="text" name="task" placeholder="Новая задача" >
+        <input name="userId" type="hidden" value="<?= $userId['id']?>" >
+        <input type="text" name="description" placeholder="Новая задача" >
         <button type="submit">Отправить</button>
     </form>
     <br>
     <?php
-    $cookieTasks = unserialize($_COOKIE['TaskCookie']);
-    foreach ($cookieTasks as $key => $cookieTask) {
-        ?>
-        <div class="<?= $cookieTask['Status'] ?>"> <?= $key + 1, '.' ?>      <?= $cookieTask['Body'] ?>
-            <button onclick="document.location='del.php?taskId=<?= $key ?>'">Удалить</button>
-            <button onclick="document.location='status.php?taskId=<?= $key ?>'">Выполнить</button>
-        </div> <br>
-        <?php
+    while ($task = $dataTask->fetch_assoc()) {
+
+    ?>
+    <div class="<?= $task['status']?>"> <?= $task['description'];?>
+    <button onclick="document.location='del.php?taskId=<?= $task['id'] ?>'">Удалить</button>
+    <button onclick="document.location='status.php?taskId=<?= $task['id'] ?>'">Выполнить</button>
+    </div> <br>
+    <?php
     }
     ?>
-    <button onclick="document.location='deleteList.php'">Удалить все</button>
+    <button onclick="document.location='delList.php?userId=<?= $userId['id']?>'">Удалить все</button>
 </body>
 </html>

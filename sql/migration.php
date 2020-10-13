@@ -18,7 +18,7 @@ if ($link !== false) {
     id          int auto_increment
         primary key,
     user_id     int         null,
-    description int         null,
+    description varchar(255)         null,
     created_at  date        null,
     status      varchar(10) null,
     hash        text        not null
