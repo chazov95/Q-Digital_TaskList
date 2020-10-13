@@ -20,7 +20,8 @@ if ($link !== false) {
     user_id     int         null,
     description int         null,
     created_at  date        null,
-    status      varchar(10) null
+    status      varchar(10) null,
+    hash        text        not null
 )'
     );
 }

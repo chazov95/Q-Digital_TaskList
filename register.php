@@ -1,6 +1,7 @@
 <?php
 
-$link = mysqli_connect("mysql", "db", "db", "db");
+$connector = new Connector();
+$link = $connector->connect();
 
 if (isset($_POST['submit'])) {
 
@@ -15,31 +16,27 @@ if (isset($_POST['submit'])) {
         $err[] = "Логин должен быть не меньше 3-х символов и не больше 30";
     }
 
-    // проверяем, не сущестует ли пользователя с таким именем
-    $query = mysqli_query($link, "SELECT id FROM users WHERE login='" . $_POST['login'] . "'");
-    $queryResult = $query->fetch_all();
+    // проверяем, сущестует ли уже пользователь с таким именем
+    $query = mysqli_query($link, "SELECT id,password,hash FROM users WHERE login='" . $_POST['login'] . "'");
+    $data = mysqli_fetch_assoc($query);
 
-    if (count($queryResult) > 0) {
-        setcookie('user_id', (string)$queryResult[0][0]);
-        header("Location: tasklist.php");
-    }
+    if ($data['password'] === md5($_POST['password'])) {
 
-    // Если нет ошибок, то добавляем в БД нового пользователя
-    if (count($err) == 0) {
+        setcookie('hash', $data['hash']);
+
+    } //в случаи, если пользователь с log/pass не существует, добавляем нового пользователя
+    else {
 
         $login = $_POST['login'];
 
-        $password = md5(($_POST['password']));
+        $password = md5(trim($_POST['password']));
 
-        $link->query("INSERT INTO users SET login='" . $login . "', password='" . $password . "'");
-        $userId = mysqli_insert_id($link);
-        setcookie('user_id', (string)$userId);
-        header("Location: tasklist.php");
-        exit();
-    } else {
-        print "<b>При регистрации произошли следующие ошибки:</b><br>";
-        foreach ($err as $error) {
-            print $error . "<br>";
-        }
+        $hash = md5(generateCode(10));
+
+        $link->query("INSERT INTO users SET login='" . $login . "', password='" . $password . "',hash= '" . $hash . "'");
+        $query = mysqli_query($link, "SELECT hash FROM users");
+        $data = mysqli_fetch_assoc($query);
+
+        setcookie('hash', $data['hash']);
     }
 }
