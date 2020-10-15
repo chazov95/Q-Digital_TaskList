@@ -1,8 +1,8 @@
 <?php
+require_once('Controllers/taskController.php');
 
-require_once('Connector.php');
-$connector = new Connector();
-$link = $connector->connect();
+if ($_SESSION['id'] === $_GET['userId']) {
 
-$link->query("DELETE FROM tasks WHERE id = '".$_GET['taskId']."'");
+    $link->query("DELETE FROM tasks WHERE id = '" . $_GET['taskId'] . "'");
+}
 header('Location: /tasklist.php');

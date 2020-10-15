@@ -23,8 +23,8 @@ try {
 
         $err = [];
 
-        // проверям логин
-        if (!preg_match("/^[a-z A-Z 0-9]+$/", $_POST['login'])) {
+        // проверям логин на допустимый синтаксис
+        if (!preg_match("/^[a-zA-Z0-9]+$/", $_POST['login'])) {
             $err[] = "Логин может состоять только из букв английского алфавита и цифр";
 
         }
@@ -37,24 +37,24 @@ try {
 
         if (empty($err)) {
             session_start();
-            $query = mysqli_query($link, "SELECT id,password,hash FROM users WHERE login='" . $_POST['login'] . "'");
+            $login = $_POST['login'];
+            $query = mysqli_query($link, "SELECT id,password,hash FROM users WHERE login='" . $login . "'");
+            $data = mysqli_fetch_assoc($query);
+
 
             if ($data['password'] === md5($_POST['password'])) {
-                $_SESSION['hash']=$data['hash'];
-
+                $_SESSION['hash'] = $data['hash'];
+                $_SESSION['id'] = $data['id'];
             } else {
-                //в случаи, если пользователь с log/pass не существует, добавляем нового пользователя
-
-                $login = $_POST['login'];
+                //в случаи, если пользователь с комбинацией log/pass не существует, добавляем нового пользователя
 
                 $password = md5(trim($_POST['password']));
-
                 $hash = md5(generateCode());
 
                 $link->query("INSERT INTO users SET login='" . $login . "', password='" . $password . "',hash= '" . $hash . "'");
 
-                $_SESSION['hash']=$hash;
-
+                $_SESSION['id'] = $link->insert_id;
+                $_SESSION['hash'] = $hash;
             }
             header('Location: /tasklist.php');
 
@@ -68,4 +68,3 @@ try {
 } catch (Throwable $exception) {
     print_r($exception->getMessage());
 }
-

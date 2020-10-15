@@ -9,8 +9,12 @@
 </head>
 <body>
 <form action="register.php" method="POST">
-    Логин <input name="login" type="text" required><br>
-    Пароль <input name="password" type="password" required><br>
+    Логин <label>
+        <input name="login" type="text" required>
+    </label><br>
+    Пароль <label>
+        <input name="password" type="password" required>
+    </label><br>
     <button name="submit" type="submit" value="reg">Зарегистрироваться</button>
 </form>
 </body>

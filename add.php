@@ -1,9 +1,15 @@
 <?php
-
+session_start();
 require_once('Connector.php');
 $connector = new Connector();
 $link = $connector->connect();
-$datetime = date_create()->format('Y-m-d H:i:s');
-$description=htmlspecialchars($_POST['description']);
-$link->query("insert into tasks (user_id, description, created_at, status) values (".$_POST['userId'].",'".$description."','".$datetime."','new')");
- header('Location: /tasklist.php');
+
+if (!empty($_POST['description'])) {
+    $userId = $_SESSION['id'];
+    $description = htmlspecialchars($_POST['description']);
+    $datetime = date_create()->format('Y-m-d H:i:s');
+    $status = htmlspecialchars('new');
+
+    $link->query("insert into tasks (user_id, description, created_at, status) values ('$userId','$description','$datetime ','$status')");
+}
+header('Location: /tasklist.php');
